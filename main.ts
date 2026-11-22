@@ -32,9 +32,13 @@ if (shotCount < 3 || shotCount > 4) {
 }
 
 // Start from a clean output directory so a stale file from an earlier run
-// can never ride along into the entry.
-rmSync(out, { recursive: true, force: true });
+// can never ride along into the entry. Never remove the output directory
+// itself: in the grader it is a root-owned mount the program user cannot
+// delete (EPERM). Create it first, then remove only its contents.
 mkdirSync(out, { recursive: true });
+for (const name of readdirSync(out)) {
+  rmSync(join(out, name), { recursive: true, force: true });
+}
 cpSync(join(here, 'game'), join(out, 'game'), { recursive: true });
 mkdirSync(join(out, 'screenshots'), { recursive: true });
 if (existsSync(join(here, 'screenshots'))) {
