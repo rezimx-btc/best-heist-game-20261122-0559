@@ -1,0 +1,92 @@
+:root {
+  --gold: #e8c15a;
+  --gold-bright: #ffd76a;
+  --ink: #0d0f16;
+  --panel: #151827;
+  --panel-edge: #2c3a5e;
+  --text: #f2ead8;
+  --muted: #9aa3b8;
+  --danger: #ff3b30;
+  --safe: #2fd67a;
+  --cyan: #39d0ff;
+  --pink: #ff5d8f;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: radial-gradient(1200px 700px at 50% -10%, #232742 0%, var(--ink) 60%);
+  color: var(--text);
+  font-family: "Trebuchet MS", "Segoe UI", Verdana, sans-serif;
+}
+#app { width: 1280px; margin: 0 auto; padding: 10px 16px 14px; }
+.topbar {
+  display: flex; align-items: center; gap: 18px;
+  padding: 6px 4px 10px;
+}
+.topbar h1 { margin: 0; font-size: 26px; letter-spacing: 3px; color: var(--text); }
+.topbar h1 span { color: var(--gold); }
+#heist-name { color: var(--muted); font-size: 14px; letter-spacing: 1px; }
+.alarm-box {
+  margin-left: auto; display: flex; align-items: center; gap: 8px;
+  background: var(--panel); border: 1px solid var(--panel-edge);
+  border-radius: 6px; padding: 6px 10px;
+}
+.alarm-label { font-size: 12px; letter-spacing: 2px; color: var(--muted); }
+.alarm-track {
+  width: 180px; height: 14px; background: #0a0c14;
+  border: 1px solid var(--panel-edge); border-radius: 7px; overflow: hidden;
+}
+#alarm-fill {
+  height: 100%; width: 0%;
+  background: linear-gradient(90deg, var(--gold), #ff9f1c 60%, var(--danger));
+  transition: width 120ms linear;
+}
+#alarm-value { font-weight: bold; min-width: 38px; text-align: right; }
+.score-box {
+  background: var(--panel); border: 1px solid var(--panel-edge);
+  border-radius: 6px; padding: 8px 12px; font-size: 14px; letter-spacing: 1px;
+}
+.score-box span { color: var(--gold); font-weight: bold; font-size: 18px; }
+.layout { display: flex; gap: 14px; align-items: flex-start; }
+#game-canvas {
+  display: block; width: 960px; height: 600px;
+  border: 2px solid #3a2f16; border-radius: 8px;
+  background: #10131f; box-shadow: 0 0 34px rgba(232, 193, 90, 0.12);
+}
+.panel {
+  width: 276px; flex: none; background: var(--panel);
+  border: 1px solid var(--panel-edge); border-radius: 8px; padding: 12px 14px;
+}
+.panel h2 {
+  margin: 4px 0 8px; font-size: 13px; letter-spacing: 2px; color: var(--gold);
+  border-bottom: 1px solid var(--panel-edge); padding-bottom: 5px;
+}
+.panel h2:not(:first-child) { margin-top: 16px; }
+.stat { font-size: 14px; line-height: 1.5; color: var(--text); }
+.stat b { color: var(--gold); }
+#guard-roster .guard-row {
+  display: flex; justify-content: space-between; font-size: 13px;
+  padding: 3px 0; border-bottom: 1px dashed #232a44;
+}
+#guard-roster .guard-row:last-child { border-bottom: none; }
+.guard-state { font-weight: bold; }
+.guard-state.calm { color: var(--gold-bright); }
+.guard-state.suspicious { color: #ff9f1c; }
+.guard-state.alert { color: var(--danger); }
+.legend {
+  display: flex; flex-wrap: wrap; gap: 6px 18px; align-items: center;
+  margin-top: 10px; font-size: 12px; color: var(--muted);
+}
+.legend b { color: var(--text); letter-spacing: 2px; }
+.swatch {
+  display: inline-block; width: 12px; height: 12px; border-radius: 3px;
+  vertical-align: -1px; margin-right: 4px;
+}
+.controls-line {
+  margin-top: 8px; font-size: 13px; color: var(--muted); text-align: center;
+}
+.controls-line b { color: var(--text); }
+#status-line {
+  margin-top: 6px; text-align: center; font-size: 14px; color: var(--gold-bright);
+  min-height: 20px;
+}
