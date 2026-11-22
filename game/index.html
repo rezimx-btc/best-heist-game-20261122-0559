@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="THE GILDED VAULT — slip past patrolling guards and sweeping cameras, crack the vault, steal the Sunheart Diamond and vanish into the night.">
+<link rel="icon" href="data:,">
+<title>THE GILDED VAULT — a top-down heist game</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div id="app">
+  <header class="topbar">
+    <h1>THE <span>GILDED VAULT</span></h1>
+    <div id="heist-name">The Aurelia Gallery — One Night Only</div>
+    <div class="alarm-box" title="Alarm meter — fills when a guard or camera spots you">
+      <span class="alarm-label">ALARM</span>
+      <div class="alarm-track"><div id="alarm-fill"></div></div>
+      <span id="alarm-value">0%</span>
+    </div>
+    <div class="score-box">SCORE <span id="score-value">0</span></div>
+  </header>
+  <main class="layout">
+    <canvas id="game-canvas" width="960" height="600"></canvas>
+    <aside class="panel" aria-label="Heist panel">
+      <h2>THE JOB</h2>
+      <div class="stat">Loot: <b id="loot-count">0 / 4</b></div>
+      <div class="stat" id="goal-status">Find the keycard, crack the vault, take the Sunheart Diamond.</div>
+      <div class="stat" id="vault-status">Vault: LOCKED — needs the keycard</div>
+      <div class="stat" id="exit-status">Exit: the service door, south-east</div>
+      <h2>CREW STATUS</h2>
+      <div id="guard-roster"></div>
+      <h2>TOOLS</h2>
+      <div class="stat" id="smoke-count">Smoke bombs: 2 (Q)</div>
+      <div class="stat" id="coin-count">Coins: 5 (click to toss)</div>
+      <div class="stat" id="time-line">Time: 0:00</div>
+      <div class="stat" id="rating-line">Rating so far: GHOST (never seen)</div>
+    </aside>
+  </main>
+  <footer class="legend">
+    <b>LEGEND</b>
+    <span><span class="swatch" style="background:#ffd76a"></span>vision cone — calm</span>
+    <span><span class="swatch" style="background:#ff3b30"></span>cone — alert</span>
+    <span><span class="swatch" style="background:#ff5d8f"></span>camera sweep</span>
+    <span><span class="swatch" style="background:#8a6d3b"></span>crate — cover</span>
+    <span><span class="swatch" style="background:#1a2033;border:1px solid #2c3a5e"></span>shadow rug — hides you</span>
+    <span><span class="swatch" style="background:#39d0ff"></span>Sunheart Diamond</span>
+    <span><span class="swatch" style="background:#2fd67a"></span>exit door</span>
+  </footer>
+  <div class="controls-line"><b>WASD / arrows</b> move &nbsp;·&nbsp; <b>Shift</b> sneak &nbsp;·&nbsp; <b>E</b> grab / unlock &nbsp;·&nbsp; <b>click</b> toss coin &nbsp;·&nbsp; <b>Q</b> smoke &nbsp;·&nbsp; <b>P</b> pause &nbsp;·&nbsp; <b>R</b> restart &nbsp;·&nbsp; <b>M</b> mute</div>
+  <div id="status-line">Stay out of the cones. The vault needs the keycard.</div>
+</div>
+<script src="js/levels.js"></script>
+<script src="js/guard.js"></script>
+<script src="js/camera.js"></script>
+<script src="js/player.js"></script>
+<script src="js/audio.js"></script>
+<script src="js/input.js"></script>
+<script src="js/render.js"></script>
+<script src="js/hud.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
